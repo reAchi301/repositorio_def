@@ -1,0 +1,23 @@
+
+
+
+body{
+    margin: 0 auto;
+    max-width: 50em;
+    font-family: "Helvetica";
+    line-height: 1em;
+    padding: 4em 1em;
+    color: blue;
+}
+
+h2{
+    margin-top: 1em;
+    padding-top: 1 em;
+}
+
+h1,
+h2,
+strong {
+    color: cadetblue;
+}
+
