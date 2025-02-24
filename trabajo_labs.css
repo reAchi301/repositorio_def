@@ -1,3 +1,10 @@
+header img{
+    display: inline-block;
+    height: 120px;
+    vertical-align: top;
+    width: 120px; 
+}
+
 header{
     color: blueviolet;
     background-color:aliceblue;
@@ -7,6 +14,12 @@ header{
     line-height: 1.2;  
     padding: 10vw 2em;
     text-align: center;
+    text-transform: capitalize;
+    font-size: 2  em;
+    font-weight: 300;
+    text-decoration: overline;
+    transition: none 200ms ease-out;
+    transition-property: color, background;
 }
 
 
