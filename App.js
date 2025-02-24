@@ -136,6 +136,17 @@ const server = http.createServer( (request, response) => {
     response.write(html_header + html_form + html_footer);
     response.end();
   } else if(request.method == "POST" && request.url == "/agregar") {
+
+    request.on('data', ()=>{
+        console.log(data);
+        datos_completos.push(data);
+    });
+
+    request.on('end', ()=>{
+        datos_completos = Buffer.concat(datos_completos).toString();
+        console.log(string_datos_completos);
+    })
+
   } else {
     response.statusCode = 404;
     response.setHeader('Content-Type', 'text/html');
