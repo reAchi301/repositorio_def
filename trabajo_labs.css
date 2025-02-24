@@ -1,43 +1,135 @@
-header img{
-    display: inline-block;
-    height: 120px;
-    vertical-align: top;
-    width: 120px; 
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-header{
-    color: blueviolet;
-    background-color:aliceblue;
-    background-image: url("https://media.cnn.com/api/v1/images/stellar/prod/cnne-1093173-alvaro-diaz-felicilandia.jpg?c=16x9&q=h_833,w_1480,c_fill");
+
+body {
+    margin: 0 auto;
+    font-family: "Helvetica";
+    line-height: 1.6;
+    padding: 4em 1em;
+    color: #333;
+    background-color: mediumslateblue;
+}
+
+.content_lab1{
+    background: white;  
+    max-width: 60em;  
+    margin: auto;  
+    padding: 2em; 
+    border-radius: 10px;  
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); 
+}
+
+
+.content_lab2{
+    background: white;  
+    max-width: 60em;  
+    margin: auto;  
+    padding: 2em; 
+    border-radius: 10px;  
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); 
+}
+
+
+
+header {
+    color: white;
+    background-color: #4B0082;
+    background-image: url("https://i.ytimg.com/vi/BsfSgbyAdd4/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDptJzWAmvsLgArsRYwiYQfl7ePXw");
     background-repeat: no-repeat;
     background-size: cover;
-    line-height: 1.2;  
-    padding: 10vw 2em;
+    background-position: center;
     text-align: center;
-    text-transform: capitalize;
-    font-size: 2  em;
-    font-weight: 300;
-    text-decoration: overline;
-    transition: none 200ms ease-out;
-    transition-property: color, background;
+    font-size: 2em;
+    padding: 8vw 2em;
+    border-bottom: 5px solid #4B0082;
+}
+
+header h1 {
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
 
-body{
-    margin: 0 auto;
-    max-width: 50em;
-    font-family: "Helvetica";
-    line-height: 1.5;
-    padding: 4em 1em;
-    color: black;
+header img {
+    display: inline-block;
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    border: 3px solid white;
+    transition: transform 0.3s ease-in-out;
 }
 
-pre {
-    background: #f5f7f9;
-    border-bottom: 1px solid #d8dee9;
-    color: #a7adba;
-  }
-  
-  pre {
-    border-left: 2px solid #69c;
-  }
+header img:hover {
+    transform: scale(1.1);
+}
+
+
+ul, ol {
+    padding-left: 20px;
+}
+
+ul {
+    list-style-type: square;
+}
+
+ol {
+    list-style-type: decimal;
+}
+
+
+p {
+    font-size: 1em;
+    text-align: justify;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+table th {
+    background-color: #4B0082;
+    color: white;
+}
+
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 600px) {
+    header {
+        font-size: 1.5em;
+        padding: 5vw 1em;
+    }
+
+    header img {
+        height: 100px;
+        width: 100px;
+    }
+
+    body {
+        max-width: 100%;
+        padding: 2em 1em;
+    }
+}
