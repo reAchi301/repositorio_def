@@ -115,6 +115,11 @@ const html_footer = `</div>
 const express = require('express');
 const app = express();
 
+const bodyParser = require('body-parser');
+
+const plantas =[];
+
+
 //Middleware
 app.use((request, response, next) => { //Response tiene el objeto de la respuesta, la funcion que recibe como parametro es next, que avanza de un middleware al siguiente
     console.log('Middleware!'); //Imprime middleware!
@@ -122,12 +127,22 @@ app.use((request, response, next) => { //Response tiene el objeto de la respuest
 });
 
 //Express funciona mediante middlewares
-//app.get es para registrar un middleware para peticiones HTTP GET
-app.get('/plantas/agregar', (request, response, next) =>{
+app.use('/plantas/agregar', (request, response, next) =>{
     response.send(html_header + html_form + html_footer);
 }); //Middleware para aplicar el html de la cabecera unicamente cuando dentro del dominio se utiliza /plantas/agregar
 //El orden dentro de los middleware si importa, "USE" es para poner caulquier tipo de peticion
 
+//app.get es para registrar un middleware para peticiones HTTP GET
+app.get('/plantas/agregar', (request, response, next) =>{
+    response.send(html_header + html_form + html_footer);
+});
+
+//El .post 
+app.post('/plantas/agregar', (request, response, next) =>{
+    console.log(request.body);
+    plantas.push(request.body.nombre);
+    response.send(html_header + html_form + html_footer);
+});
 
 
 
