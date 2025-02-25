@@ -1,0 +1,19 @@
+#Node artifact files
+node_modules/
+dist/
+
+#Compiled Java Class files
+Thumbs.db #Windows
+
+#Compiled Phyton bytecode
+*.py[cod]
+
+#log files
+.log
+
+#Mac
+DS_Store
+
+
+#Large media files
+*.
