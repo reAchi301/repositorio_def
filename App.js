@@ -122,11 +122,14 @@ app.use((request, response, next) => { //Response tiene el objeto de la respuest
 });
 
 //Express funciona mediante middlewares
-
-app.use('/plantas/agregar', (request, response, next) =>{
+//app.get es para registrar un middleware para peticiones HTTP GET
+app.get('/plantas/agregar', (request, response, next) =>{
     response.send(html_header + html_form + html_footer);
 }); //Middleware para aplicar el html de la cabecera unicamente cuando dentro del dominio se utiliza /plantas/agregar
-//El orden dentro de los middleware si importa
+//El orden dentro de los middleware si importa, "USE" es para poner caulquier tipo de peticion
+
+
+
 
 app.use((request, response, next) => {
     console.log('Otro middleware!');
