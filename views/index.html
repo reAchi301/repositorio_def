@@ -1,4 +1,3 @@
-const html_header =
 <!DOCTYPE html>
 <html>
   <head>
@@ -76,23 +75,21 @@ const html_header =
     <section class="section">
         <div class="container">
             <h1 class="title">
-                Invernadero
+                Hello World
             </h1>
-            `;
-            
-const html_form = `<form action="/agregar" method="POST">
-              <label for="nombre" class="label">Nombre de la planta</label>
-              <input
-                class="input is-info"
-                type="text"
-                placeholder="Orquídea"
-                id="nombre"
-                name="nombre"
-              />
-              <br><br>
-              <input class="button is-info" type="submit" value="Enviar">
-            </form>`;
-const html_footer = `</div>
+            <p class="subtitle">
+                My first website with <strong>Bulma</strong>!
+            </p>
+            <div class="columns">
+                <div class="column">
+                  <button id="boton_regar" class="button is-danger">Regar</button>
+                </div>
+                <div class="column"><span id="imagen_menta"></span></div>
+                <div class="column"><span id="imagen_jacaranda"></span></div>
+                <div class="column"><span id="imagen_maqui"></span></div>
+                <div class="column">5</div>
+              </div>
+        </div>
     </section>
     <footer class="footer">
         <div class="content has-text-centered">
@@ -110,4 +107,3 @@ const html_footer = `</div>
       <script src="js/introjs.js"></script>
   </body>
 </html>
-;
