@@ -115,6 +115,7 @@ const html_footer = `</div>
   </body>
 </html>
 `;
+
 const plantas = [];
 //router.get es para registrar un middleware para peticiones HTTP GET
 router.get('/agregar', (request, response, next) => {
