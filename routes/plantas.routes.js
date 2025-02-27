@@ -1,3 +1,5 @@
+const express = require('express');
+const router = express.Router();
 const html_header = `
 <!DOCTYPE html>
 <html>
@@ -34,6 +36,8 @@ const html_header = `
       
             <a class="navbar-item">
               Documentation
+            <a href="/plantas/agregar" class="navbar-item">
+              Agregar planta
             </a>
       
             <div class="navbar-item has-dropdown is-hoverable">
@@ -111,24 +115,13 @@ const html_footer = `</div>
   </body>
 </html>
 `;
-const express = require('express');
-const app = express();
-const bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({extended: false}));
 const plantas = [];
-//Middleware
-app.use((request, response, next) => {
-    console.log('Middleware!');
-    //Le permite a la petición avanzar hacia el siguiente middleware
-    next(); 
-});
-//app.get es para registrar un middleware para peticiones HTTP GET
-app.get('/plantas/agregar', (request, response, next) => {
+//router.get es para registrar un middleware para peticiones HTTP GET
+router.get('/agregar', (request, response, next) => {
     response.send(html_header + html_form + html_footer);
 });
-const plantasRoutes = require('./routes/plantas.routes');
-//app.post es para registrar un middleware para peticiones HTTP POST
-app.post('/plantas/agregar', (request, response, next) => {
+//router.post es para registrar un middleware para peticiones HTTP POST
+router.post('/agregar', (request, response, next) => {
     console.log(request.body);
     plantas.push(request.body.nombre);
     let html = html_header;
@@ -148,10 +141,15 @@ app.post('/plantas/agregar', (request, response, next) => {
     html += html_footer;
     response.send(html);
 });
-app.use('/plantas', plantasRoutes);
-app.use((request, response, next) => {
-    console.log('Otro middleware!');
-    
-    //Manda la respuesta
-    response.send('¡Hola mundo!'); 
+
+const path = require('path');
+
+router.get('/regar',(request, response, next) => {
+  //response.sendFile('../views/index.html');
+   //La ruta a la carpeta views en donde se encontraría el index html, que no tenemos completo
+   response.sendFile(path.join(__dirname,'..', 'views', 'index.html'));
+   //el path join pone la direccion de donde se encuentra el archivo en orden .. , carpeta , nombre
+   //aqui con el path join se une al servidor de tu directorio de nombre
 });
+
+module.exports = router;
