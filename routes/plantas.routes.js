@@ -2,22 +2,25 @@ const express = require('express');
 
 const router = express.Router();
 
+const plantas_controller = require('../controller/plantas.controller')
+
+//Aqui estaba el arreglo pero se camvbia a controller para que funcione la logica
 const plantas = [];
 
 //router.get es para registrar un middleware para peticiones HTTP GET
-router.get('/agregar', (request, response, next) => {
-    response.render('agregar_planta');
-});
+
+//Una vez se pone el controller se pasa de esta funcion:
+
+//router.get('/agregar', (request, response, next) => {
+  //  response.render('agregar_planta');
+//});
+
+// A esto separando la logica de las rutas
+
+router.get('/agregar', plantas_controller.get_agregar);
 
 //router.post es para registrar un middleware para peticiones HTTP POST
-router.post('/agregar', (request, response, next) => {
-    console.log(request.body);
-    plantas.push(request.body.nombre);
-
-    response.render('lista_plantas', {
-      plantas: plantas,
-    });
-});
+router.post('/agregar', plantas_controller.post_agregar);
 
 const path = require('path');
 
