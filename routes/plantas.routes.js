@@ -18,6 +18,7 @@ const plantas = [];
 // A esto separando la logica de las rutas
 
 router.get('/agregar', plantas_controller.get_agregar);
+router.get('/add', plantas_controller.get_agregar); // mismo metodo mismas acciones solo cambia la traducción
 
 //router.post es para registrar un middleware para peticiones HTTP POST
 router.post('/agregar', plantas_controller.post_agregar);
