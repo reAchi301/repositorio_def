@@ -20,7 +20,6 @@ module.exports = class Planta {
 }
                     
 //Para usar el modelo en el controlador:
-
 const Modelo = require('../models/modelo');
 
 //Para crear un objeto de nuestro modelo

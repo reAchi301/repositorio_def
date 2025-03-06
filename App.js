@@ -8,9 +8,21 @@ app.set('views', 'views');
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+const session = require ('express-session')
+
+app.use(session({
+    secret: 'mi string secreto debe ser uno aleatorio no este',
+    resave: false,
+    saveUninitialized: false, 
+}))
+
 const bodyParser = require('body-parser');
 
 app.use(bodyParser.urlencoded({extended: false}));
+
+const usersRoutes = require('./routes/users.routes')
+
+
 
 //Middleware
 app.use((request, response, next) => {
