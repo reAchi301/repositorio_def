@@ -1,30 +1,15 @@
 const express = require('express');
-
 const router = express.Router();
-
-const plantas_controller = require('../controller/plantas.controller')
-
-//Aqui estaba el arreglo pero se camvbia a controller para que funcione la logica
-const plantas = [];
-
+const isAuth = require('../util/is-auth');
+const canView = require('../util/canViewPlantas');
+const canCreate = require('../util/canCreatePlantas');
+const plantas_controller = require('../controllers/plantas.controller');
 //router.get es para registrar un middleware para peticiones HTTP GET
-
-//Una vez se pone el controller se pasa de esta funcion:
-
-//router.get('/agregar', (request, response, next) => {
-  //  response.render('agregar_planta');
-//});
-
-// A esto separando la logica de las rutas
-
-router.get('/agregar', plantas_controller.get_agregar);
-router.get('/add', plantas_controller.get_agregar); // mismo metodo mismas acciones solo cambia la traducción
-
+router.get('/agregar', isAuth, canCreate, plantas_controller.get_agregar);
+router.get('/add', isAuth, canCreate, plantas_controller.get_agregar);
 //router.post es para registrar un middleware para peticiones HTTP POST
-router.post('/agregar', plantas_controller.post_agregar);
-
-router.get('/regar', plantas_controller.get_regar);
-
-router.get('/', plantas_controller.get_root);
-
+router.post('/agregar', isAuth, canCreate, plantas_controller.post_agregar);
+router.get('/regar', isAuth, plantas_controller.get_regar);
+router.get('/:id', isAuth, canView, plantas_controller.get_root);
+router.get('/', isAuth, canView, plantas_controller.get_root);
 module.exports = router;
