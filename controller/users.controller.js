@@ -82,4 +82,5 @@ exports.get_logout = (request, response, next) => {
         //Este código se ejecuta cuando la sesión se elimina.
         response.redirect('/users/login'); 
     });
+
 };

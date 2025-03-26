@@ -4,18 +4,105 @@
         <%= info %>
     </div>
 <% } %>
-<div class="columns">
-<% for(let planta of plantas) { %>
-    <div class="column">
-        <div class="card">
-            <div class="card-content">
-                <div class="content">
-                    <a href="/plantas/<%= planta.id %>"><%= planta.nombre %></a>
-                    <p><%= planta.created_at %></p>
+<label class="label" for="buscar">Buscar</label>
+<input
+    id="buscar"
+    name="buscar"
+    class="input is-info"
+    type="text"
+    placeholder="Tulipán"
+/>
+<br><br>
+<div id="container_plantas">
+    <div class="columns">
+    <% let i = 0 %>
+    <% for(let planta of plantas) { %>
+        <div class="column">
+            <div class="card">
+                <div class="card-image">
+                    <figure class="image is-4by3">
+                        <img
+                            src="/uploads/<%= planta.imagen %>"
+                            alt="Imagen de <%= planta.nombre %>"
+                        />
+                    </figure>
+                </div>
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-left">
+                            <figure class="image is-48x48">
+                            <img
+                                src="/uploads/<%= planta.imagen %>"
+                                alt="Imagen de <%= planta.nombre %>"
+                            />
+                            </figure>
+                        </div>
+                        <div class="media-content">
+                            <p class="title is-4"><a href="/plantas/<%= planta.id %>">@<%= planta.nombre %></a></p>
+                            <p><%= planta.created_at %></p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+        <% i++ %>
+        <% if (i % 3 == 0) { %> 
+            </div>
+            <div class="columns">
+        <% } %>
+    <% } %>
     </div>
-<% } %>
 </div>
-<%- include('includes/_footer') %>
+<script>
+    const buscar = document.getElementById('buscar');
+    buscar.onkeyup = () => {
+        fetch('/plantas/buscar/' + buscar.value, {
+            method: 'GET',
+        }).then((result) => {
+            return result.json();
+        }).then((data) => {
+            let html = `<div class="columns">`;
+            let i = 0; 
+            for(let planta of data.plantas) {
+                html += `<div class="column">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img
+                                    src="/uploads/${planta.imagen}"
+                                    alt="Imagen de ${planta.nombre}"
+                                />
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-left">
+                                    <figure class="image is-48x48">
+                                    <img
+                                        src="/uploads/${planta.imagen}"
+                                        alt="Imagen de ${planta.nombre}"
+                                    />
+                                    </figure>
+                                </div>
+                                <div class="media-content">
+                                    <p class="title is-4"><a href="/plantas/${planta.id}">@${planta.nombre}</a></p>
+                                    <p>${planta.created_at}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>`
+                i++;
+                if (i % 3 == 0) {
+                    html += `</div>
+                            <div class="columns">`;
+                }
+            }
+            html += '</div>';
+            const container = document.getElementById('container_plantas');
+            container.innerHTML = html;
+        }).catch((error) => {
+            console.log(error);
+        });
+    }
+</script>
