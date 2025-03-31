@@ -1,0 +1,38 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frases de Dune</title>
+</head>
+<body>
+    <h1>Frases de Dune</h1>
+    <button id="obtenerFrase">Obtener Frase</button>
+    <p id="frase"></p>
+
+    <script>
+        async function obtenerFrase() {
+            try {
+                let response = await fetch("https://api.breakingbadquotes.xyz/v1/quotes");
+                let data = await response.json();
+
+                if (data.length > 0) {
+                    document.getElementById("frase").textContent = data[0].quote;
+                } else {
+                    document.getElementById("frase").textContent = "No se encontró ninguna frase.";
+                }   
+            } catch (error) {
+                console.error("Error al obtener la frase:", error);
+                document.getElementById("frase").textContent = "Hubo un error al cargar la frase.";
+            }
+        }
+
+        document.getElementById("obtenerFrase").addEventListener("click", obtenerFrase);
+
+        
+    </script>
+    <script src="Lab26.js"></script>  
+
+    <h4>Digo perdón, de Breaking Bad :) </h4>
+
+</body>
+</html>

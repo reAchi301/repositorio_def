@@ -1,5 +1,6 @@
 const Plantas = require('../models/planta.model');
 const Jardin = require('../models/jardin.model');
+
 exports.get_agregar = (request, response, next) => {
     console.log(request.session.username);
     Plantas.fetchAll().then(([plantas, fieldData]) => {
@@ -15,8 +16,9 @@ exports.get_agregar = (request, response, next) => {
     });
 };
 exports.post_agregar = (request, response, next) => {
-    console.log(request.body);
-    const mi_planta = new Jardin(request.session.user_id, request.body.id_planta);
+    console.log(request.file);
+    const mi_planta = new Jardin(request.session.user_id, request.body.id_planta,
+        request.file.filename);
     mi_planta.save()
         .then(() => {
             request.session.info = `La planta ${mi_planta.nombre} se ha creado`;
@@ -47,6 +49,14 @@ exports.get_root = (request, response, next) => {
             console.log(error);
         });
 };
+exports.get_buscar = (request, response, next) => {
+    Jardin.find(request.session.user_id, request.params.valor)
+        .then(([rows, fieldData]) => {
+            response.status(200).json({plantas: rows});
+        }).catch((error) => {
+            response.status(500).json({message: "Servidor en peligro de extinción"});
+        });
+}
 exports.get_regar = (request, response, next) => {
     const path = require('path');
     response.sendFile(path.join(__dirname, '..', 'views', 'index.html'));

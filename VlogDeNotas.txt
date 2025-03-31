@@ -1,0 +1,109 @@
+=======================================================================================================
+=======================================================================================================
+
+31_03_2025
+
+--------------------------------Clase de Ricardo------------------------------------------------------
+
+Si la BD No existe ->>
+
+Pasos para crear la base de datos
+
+1.Identificar necesidad
+2.Identificar requisitos de Informacion
+3.Elaborar diagrama de contexto
+4.Elaborar el MER
+5.Traducir MER/EMER -> MR
+6. Construir la BD
+
+¿Que es normalizar?
+
+Organizar y estructurar los elementos de una Base de datos
+Sirve para que la misma este preaprada para cambios en la organización (Cambios en el 
+sistema que el computo apoya)
+
+Eliminar de anomalias de insercion, actualizacion, eliminación y consultas
+
+Ejemplo:
+Tabla de pagos de megacable
+
+Pagos (Cliente, Servicios, Mes1, Mes2, Mes12)
+
+-----> Yael, (Interne,cable,...), 550, 600, ...
+
+-------------------------------------Actividad-------------------------------------------------------
+Ejercicio 1:
+
+Servicios(cliente, domicilio y estado , año, rentabasica 1, servicios adicionales 1, 
+rentabasica 2, servicios adicionales 2, rentabasica 3, servicios adicionales 3, .... rentabasica 12, 
+servicios adicionales 12)
+
+fORMA INICIAL ---------> 1FN
+
+Servicios (cliente, domicilio, estado, año, mes, rentabasica, serviciosadicionales)
+
+1FM -------> 2FN (Se crea una llave primaria que garantiza unicidad)
+
+Servicios (cliente, domicilio, estado, año, mes, rentabasica, serviciosadicionales)
+
+Pk ----> cliente, domicilio, año, mes
+
+2FN ------> 3FN   (Evitar Dependencias Transitivas) 
+
+Servicios (cliente, domicilio, estado, año, mes, rentabasica, serviciosadicionales)
+
+Se cambia la llave de arriba a dividirse en las siguientes (simplificarla básicamente) -------->
+
+Cliente(noCliente, Nombre, domicilio, estado)
+
+Rentas(noCliente, idServicio, fecha, monto)
+
+Servicios(idServicio, Descripción, Tarifa)
+
+5FN ---------> 4FN
+
+-------------------------------Clase Lalo--------------------------------------------------------
+
+¿Que es un servicio web?
+
+API : Interbase de programacion de aplicaciones
+
+Cada que se interactua en un software es mediante un API
+
+No todos los API son servicios web, pero un servicio web es un API
+
+Definicion: Componente de sofware que es consumido por varias aplicaciones o componene que se encunentran en otras 
+computadores o componentes
+
+¿Porque vale la pena tener varios servicios web dentro de la pagina?
+
+- Permiten transacciones B2B de una forma estandarizada y accesible 
+- Portabilida y reusabilidad
+- Permiten desacoplamietno
+- Pueden desarrollarse y mantenerse de manera independiente nuestra aplicacion
+- Permiten la descentralización y la redundancia
+
+¿Qué tipos de servicios web existen?
+
+SOAP - Simple Object Access Protocol
+
+Desarrollas el servicio en un lenguaje XML defines cual es su servicio, operaciones, en que formato reciben y dan la respuesta
+Todo se hace en XML
+
+REST - Representational State Transfer
+
+Sistemas en red, para tratar las interacciones entre los recursos como máquinas estado.
+
+
+¿Cómo han evolucionado los servicios web las aplicaciones web?
+
+Monolithic --------> SOA -----------> MICROSERVICES
+
+
+
+
+
+
+
+
+
