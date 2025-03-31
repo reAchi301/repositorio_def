@@ -1,5 +1,6 @@
 const Plantas = require('../models/planta.model');
 const Jardin = require('../models/jardin.model');
+
 exports.get_agregar = (request, response, next) => {
     console.log(request.session.username);
     Plantas.fetchAll().then(([plantas, fieldData]) => {
