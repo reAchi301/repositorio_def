@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro de Entrega</title>
+</head>
+<body>
+  <h1>Registrar Entrega</h1>
+  <form id="formEntrega">
+    <input type="text" name="Clave" placeholder="Clave del Material" required><br>
+    <input type="text" name="RFC" placeholder="RFC del Proveedor" required><br>
+    <input type="number" name="Numero" placeholder="Número de Proyecto" required><br>
+    <input type="date" name="Fecha" required><br>
+    <input type="number" name="Cantidad" placeholder="Cantidad" required><br>
+    <button type="submit">Registrar</button>
+  </form>
+
+  <script>
+    document.getElementById("formEntrega").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      const data = Object.fromEntries(formData);
+
+      const res = await fetch("/entregan", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      const text = await res.text();
+      alert(text);
+    });
+  </script>
+</body>
+</html>

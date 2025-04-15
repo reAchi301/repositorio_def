@@ -100,6 +100,159 @@ Sistemas en red, para tratar las interacciones entre los recursos como máquinas
 Monolithic --------> SOA -----------> MICROSERVICES
 
 
+================================================================================================================
+================================================================================================================
+================================================================================================================
+
+01/04/2025
+
+---------------------------Clase Ricardo------------------------------------------------------------------
+
+Describen todos los estados posibles en los que puede entrar un objeto particular y la manera en que cambia el
+ estado del objeto, como resultado de los eventos que llegan a él.
+
+Generalmente se dibujan para “una sola clase”, mostrando el comportamiento de un solo objeto durante todo su
+ ciclo de vida.
+
+Maquina Estado se enfoca mayormente en los comportamientos, no tiene un punto de inicio
+
+Normalmente contienen: estados y transiciones. Como los estados y las transiciones incluyen, a su vez,
+ eventos, acciones y actividades, primero veremos estas definiciones
+
+
+==============================================================================================================
+==============================================================================================================
+==============================================================================================================
+
+03/04/2025
+
+------------------------Clase de Ricardo----------------------------
+
+Representa la arquitectura de ejecucion de los Sistemas
+Muestra artefactos del sistema como nodos, los cuales son conectados para crear redes de complejidad arbitraría
+
+DOS POSIBLES TIPOS DE ESTEREOTIPOS 
+
+DISPOSITIVOS HARDWARE - computadora, DISPOSITIVOS, etc.
+ENTORNOS DE EJECUCION - software
+
+Representan recurso computacional sobre el que se pueden desplegar artefactos para su ejecucion
+
+==============================================================================================================
+==============================================================================================================
+==============================================================================================================
+
+07/04/2025
+
+------------------------Clase de Ricardo----------------------------
+
+El diagrama de despliegue: Describe la arquitectura de ejecucion de computo
+
+-TRIGGERS (DISPARADORES)
+
+Propiedades ACID - transacciones
+
+Begin y END para poder aplicar transacciones
+
+Stored Procedures
+
+---------------------UN TRIGGER ES UN STORED PROCEDURE DISFRAZADO----------------------------------
+
+EVENTOS, reacciona en base a eventos a diferencia de un Stored Procedure, 
+
+DDL, Modifica la estructura de la base de datis
+DML, conjunto de modificacion de los datos dentro de la base de datos
+
+-----------------CLASE DE LALO-----------------------
+
+¿Que es la usabilidad?
+
+Lo intuitivo que es el sistema, atributo de calidad relacionado a qué tan facil es algo de usar
+
+- rapido de aprender
+- facil de recordad
+- resistente a errores
+- Los usuarios son eficientes cunando usan algo
+
+¿Como evaluar la usabilidad de una interface?
+
+Usability walktrhoughs 
+Usability testing - 1 programador con 1 stakeholder
+Thinking Aloud Tests - La mas efectiva, 
+
+
+Evaluacion Heurística o Revision de Expertos
+
+Si un producto cumple con x Heurísticas puede resolucionar
+
+como un tipo medicion, o apartado a cumplir por la funcinoabilidad por el sistema
+
+1. Visibulidad y estatus del sistema
+Mantener a los usuarios informados sobre lo que esta sucediendno, por retroalimentacion dentro de un
+tiempo de respuesta responsable
+
+2. Correspondencia entre el sistema y el mundo relacionado
+El diseño debe hablar el lenguaje del usuario.
+
+Usa palabras, frases y conceptos familiares al usuario, en lugar de jerga interna 
+
+3. Control y libertad del usuario
+
+Los usuarios cometen errores frecuentemente, por lo que necesiran una salida de emergencia para abandonar 
+la accion que desean corregir
+
+4. Consistencia y estandares
+
+Los usuarios no deben estar pensando en si diferentes palabras significan 
+lo mismo, siguiendo las convenciones de las plataformas
+
+5. Prevencion de errores
+
+Se previene que los errores ocurran
+
+6. Reconocimiento antes que recuerdo
+
+Minimiza la carga de la memorio del usuario haciendo que los elementos, acciones
+y opciones sean visibles
+
+Evita que los usuarios recuerden inforamción
+
+7. Flexibilidad y Eficiencia de usuario
+
+Los aceleradores (shortcuts) ayudan a mejorar la velocidad de interaccion de un usuario Experto
+
+8. Estetica y diseño minimalista
+
+Si te dicen que el sistema es facil de usar, no es facil de usar
+
+9. Reconocimiento, diagnostico y recuperacion de errores
+
+Los mensajes de error se deben de expresar en un lenguaje entendible para 
+que el usuario pueda entender el problema y de manera constructiva dar una solución
+
+Desde la posicion del mensaje hasta el contenido del mismo
+
+10. Ayuda y Documentación
+
+Es necesario proveer documentacion para ayudar a los usuarios a completar sus tareas.
+
+------------¿Como se reportan los hallazgos?----------
+
+Agarras a un grupo de evaluadores y evaluan por interfaces, cada una de ellas evalaudas mediantes las 
+euristicas anteriores
+
+
+Mediante un reporte: UAR: Usability Aspect reportan
+
+Que consta de 
+
+Descripcion
+
+Evidencia del aspectp
+Expliacion del aspecto
+Severidad del problema o beneficio de la buena característica
+Posible solución y desventajas potenciales
+Relacion con otros aspectos de usabilidad
 
 
 
@@ -107,3 +260,8 @@ Monolithic --------> SOA -----------> MICROSERVICES
 
 
 
+
+
+
+
+    
